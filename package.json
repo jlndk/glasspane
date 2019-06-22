@@ -1,0 +1,15 @@
+{
+    "name": "glasspane",
+    "version": "1.0",
+    "description": "A simple shutdown, restart, lock and logout screen intented for linux.",
+    "main": "src/main/main.js",
+    "scripts": {
+        "start": "electron ."
+    },
+    "repository": "https://github.com/electron/electron-quick-start",
+    "keywords": [],
+    "author": "Jonas Lindenskov Nielsen",
+    "devDependencies": {
+        "electron": "^5.0.4"
+    }
+}
