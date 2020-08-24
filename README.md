@@ -3,10 +3,11 @@ Custom Shutdown, Restart, Lock and Logout screen
 
 # How to use
 
-You can either download a pre-packaged release or build it yourself
+You can either download a pre-packaged release or build it yourself.
+
+The program will execute scripts in the directory `~/.config/glasspane/` corresponding to the action invoked (shutdown.sh, restart.sh, lock.sh and logout.sh).
 
 # How to build
-
 
 1. Clone this repo.
 2. Install Dependencies

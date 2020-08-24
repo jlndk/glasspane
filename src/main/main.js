@@ -1,6 +1,10 @@
 const { app, BrowserWindow, ipcMain} = require('electron');
 const {exec} = require('child_process');
+const path = require('path');
+const fs = require("fs");
 const Window = require('./Window.js');
+
+const scriptsDir = path.join(app.getPath('appData'), 'glasspane', 'scripts');
 
 let mainWindow;
 
@@ -12,6 +16,14 @@ function createWindow() {
     mainWindow.on('closed', function() {
         mainWindow = null
     });
+}
+
+function run(name) {
+    const fullPath = path.join(scriptsDir, name);
+    if (!fs.existsSync(fullPath)) {
+        console.error(`Script '${fullPath}' does not exist.`);
+    }
+    exec(fullPath);
 }
 
 //Is required on linux, alongside setTimeout on createWindow, to use transparent background
@@ -30,19 +42,19 @@ app.on('activate', function() {
 });
 
 ipcMain.on('shutdown', _=> {
-    exec('./scripts/shutdown.sh');
+    run('shutdown.sh');
 });
 
 ipcMain.on('restart', _=> {
-    exec('./scripts/restart.sh');
+    run('restart.sh');
 });
 
 ipcMain.on('logout', _=> {
-    exec('./scripts/logout.sh');
+    run('logout.sh');
 });
 
 ipcMain.on('lock', _=> {
-    exec('./scripts/lock.sh');
+    run('lock.sh');
 });
 
 ipcMain.on('quit', _=> {

@@ -2,7 +2,7 @@
     "name": "glasspane",
     "description": "A simple shutdown, restart, lock and logout screen intented for linux.",
     "author": "Jonas Lindenskov Nielsen<hi@lindenskov.dev>",
-    "version": "1.0.0",
+    "version": "0.1.0",
     "main": "src/main/main.js",
     "scripts": {
         "start": "electron .",
